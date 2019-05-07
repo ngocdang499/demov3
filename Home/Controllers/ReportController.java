@@ -89,39 +89,41 @@ public class ReportController implements Initializable {
 		XSSFSheet sheet = workbook.getSheetAt(0);
 		Iterator<Row> rowIterator = sheet.iterator();
 		if (!rowIterator.hasNext()) {
-			XSSFRow row = sheet.createRow(0);
-			XSSFCell cell = row.createCell(3);
-			cell.setCellValue(1);
-		}
-		else numRow = (int) sheet.getRow(0).getCell(3).getNumericCellValue();
-		System.out.print(numRow);
-		boolean found = false;
-		while (rowIterator.hasNext()) {
-			XSSFRow oldrow = (XSSFRow) rowIterator.next();
-			Iterator<org.apache.poi.ss.usermodel.Cell> cellIterator = oldrow.cellIterator();
-			XSSFCell oldcell = (XSSFCell) cellIterator.next();
-			if (oldcell.getStringCellValue().compareTo(BookTitle) != 0) break;
-			oldcell = (XSSFCell) cellIterator.next();
-			if (oldcell.getStringCellValue().compareTo(Author) != 0)  break;
-			oldcell = (XSSFCell) cellIterator.next();
-			int num = (int)oldcell.getNumericCellValue();
-			num++;
-			oldcell.setCellValue(num);
-			found = true;
-		}
-		if (!found) {
-			System.out.println("not found");
-			XSSFRow row;
-			if (numRow > 1) row = sheet.createRow(numRow-1);
-			else row = sheet.getRow(0);
-			numRow++;
-			sheet.getRow(0).getCell(3).setCellValue(numRow);
+			XSSFRow row = sheet.createRow(0);		//new row
+			
 			XSSFCell cellBT = row.createCell(0);
 			cellBT.setCellValue(BookTitle);
 			XSSFCell cellA = row.createCell(1);
 			cellA.setCellValue(Author);
 			XSSFCell cellNum = row.createCell(2);
 			cellNum.setCellValue(1);
+		}
+		else {
+			int numRow = 0;
+			boolean fought = false;
+			while (rowIterator.hasNext()) {
+				XSSFRow oldrow = (XSSFRow) rowIterator.next();
+				Iterator<Cell> cellIterator = oldrow.cellIterator();
+				XSSFCell oldcell = (XSSFCell) cellIterator.next();
+				if (oldcell.getStringCellValue().compareTo(BookTitle) != 0) {numRow++ ; continue;}
+				oldcell = (XSSFCell) cellIterator.next();
+				if (oldcell.getStringCellValue().compareTo(Author) != 0)  {numRow++; continue; }
+				oldcell = (XSSFCell) cellIterator.next();
+				int num = (int)oldcell.getNumericCellValue();
+				num++;
+				oldcell.setCellValue(num);
+				fought = true;
+			}
+			if (!fought) {
+				XSSFRow row = sheet.createRow(numRow);
+			
+				XSSFCell cellBT = row.createCell(0);
+				cellBT.setCellValue(BookTitle);
+				XSSFCell cellA = row.createCell(1);
+				cellA.setCellValue(Author);
+				XSSFCell cellNum = row.createCell(2);
+				cellNum.setCellValue(1);
+			}
 		}
 		fis.close();
 		FileOutputStream fos = new FileOutputStream(excelFile);
