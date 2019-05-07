@@ -40,6 +40,10 @@ public class SidePanelController implements Initializable {
     	home.setOnAction(e->{
     		callback.anchorPane.getChildren().clear();
     		callback.btnLogout.setVisible(true);
+    		callback.btnmap.setVisible(true);
+    		callback.btnedit.setVisible(true);
+    		callback.btndash.setVisible(true);
+    		callback.grid.setDisable(false);
     	}
     	);
     }
