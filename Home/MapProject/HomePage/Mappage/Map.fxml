@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.net.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="backHome" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Home.MapProject.HomePage.Mappage.MapController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="1200.0" style="-fx-background-color: #0373BD;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="3.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="23.0" minHeight="0.0" percentHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                  <RowConstraints percentHeight="25.0" vgrow="SOMETIMES" />
+                  <RowConstraints percentHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints percentHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="25.0" minHeight="0.0" percentHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <JFXButton fx:id="homebtn" buttonType="RAISED" ellipsisString="" prefHeight="50.0" prefWidth="34.0" GridPane.rowIndex="2">
+                     <graphic>
+                        <ImageView fx:id="LocaA2" fitHeight="57.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../ImageMap/home_48px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Label id="label" prefHeight="79.0" prefWidth="101.0" stylesheets="@../../../CSSpackageMap/HomePage.css" text="MAP" textFill="WHITE" translateX="90.0" GridPane.rowIndex="2" />
+                  <TextField fx:id="textSearch" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="280.0" promptText="Search for book" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin></TextField>
+                  <JFXButton fx:id="btnSearch" ellipsisString="" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="41.0" prefWidth="60.0" style="-fx-background-color: #185680;" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+                     <graphic>
+                        <ImageView fitHeight="44.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../ImageMap/search_48px.png" />
+                           </image></ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </GridPane>
+            <StackPane prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <ScrollPane prefHeight="238.0" prefWidth="340.0">
+                     <content>
+                        <AnchorPane fx:id="Parent" prefHeight="100000.0" prefWidth="100000.0" style="-fx-background-color: #b2ebf2;">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e2ff1f" height="181.0" layoutX="728.0" layoutY="191.0" stroke="BLACK" strokeType="INSIDE" width="108.0" />
+                              <ImageView fx:id="LocaA" fitHeight="39.0" fitWidth="36.0" layoutX="725.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../../../ImageMap/marker_30px.png" />
+                                 </image>
+                              </ImageView>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e2ff1f" height="181.0" layoutX="730.0" layoutY="643.0" stroke="BLACK" strokeType="INSIDE" width="108.0" />
+                              <ImageView fx:id="LocaB" fitHeight="39.0" fitWidth="36.0" layoutX="763.0" layoutY="681.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../../../ImageMap/marker_30px.png" />
+                                 </image>
+                              </ImageView>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e2ff1f" height="181.0" layoutX="961.0" layoutY="189.0" stroke="BLACK" strokeType="INSIDE" width="108.0" />
+                              <ImageView fx:id="LocaC" fitHeight="39.0" fitWidth="36.0" layoutX="1021.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../../../ImageMap/marker_30px.png" />
+                                 </image>
+                              </ImageView>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e2ff1f" height="181.0" layoutX="1403.0" layoutY="199.0" stroke="BLACK" strokeType="INSIDE" width="108.0" />
+                              <ImageView fx:id="LocaD" fitHeight="39.0" fitWidth="36.0" layoutX="1433.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../../../ImageMap/marker_30px.png" />
+                                 </image>
+                              </ImageView>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e2ff1f" height="181.0" layoutX="951.0" layoutY="640.0" stroke="BLACK" strokeType="INSIDE" width="108.0" />
+                              <ImageView fx:id="LocaE" fitHeight="39.0" fitWidth="36.0" layoutX="981.0" layoutY="663.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../../../ImageMap/marker_30px.png" />
+                                 </image>
+                              </ImageView>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e2ff1f" height="181.0" layoutX="1412.0" layoutY="428.0" stroke="BLACK" strokeType="INSIDE" width="108.0" />
+                              <ImageView fx:id="LocaF" fitHeight="39.0" fitWidth="36.0" layoutX="1434.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../../../ImageMap/marker_30px.png" />
+                                 </image>
+                              </ImageView>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e2ff1f" height="181.0" layoutX="468.0" layoutY="194.0" stroke="BLACK" strokeType="INSIDE" width="108.0" />
+                              <Label layoutX="475.0" layoutY="189.0" prefHeight="48.0" prefWidth="35.0" text="A" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="730.0" layoutY="189.0" prefHeight="48.0" prefWidth="35.0" text="B" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="964.0" layoutY="189.0" prefHeight="48.0" prefWidth="35.0" text="C" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="970.0" layoutY="645.0" prefHeight="48.0" prefWidth="35.0" text="D" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="1421.0" layoutY="453.0" prefHeight="48.0" prefWidth="35.0" text="E" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="1414.0" layoutY="222.0" prefHeight="48.0" prefWidth="35.0" text="F" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="737.0" layoutY="645.0" prefHeight="48.0" prefWidth="35.0" text="G" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="36.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </StackPane>
+         </children>
+      </VBox>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="250.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="10.0">
+         <children>
+            <JFXSlider layoutX="-21.0" layoutY="1.0" prefHeight="21.0" prefWidth="107.0" translateX="80.0" translateY="30.0" />
+            <Button layoutX="175.0" layoutY="21.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="41.0" prefWidth="53.0">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../ImageMap/icons8_zoom_in_26px_1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutY="21.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="53.0">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../ImageMap/icons8_zoom_out_26px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

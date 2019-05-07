@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="root" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #0373BD;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Home.MapProject.HomePage.SideBar.HomePageController">
+   <children>
+      <Label id="labelhome" fx:id="label" stylesheets="@../../../CSSpackageMap/HomePage.css" text="MAP GENERATOR" textFill="WHITE" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="55.0" />
+      <AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <JFXButton id="button" fx:id="btnLogout" buttonType="RAISED" prefHeight="46.0" prefWidth="100.0" style="-fx-background-color: #0095C8;" stylesheets="@../../../CSSpackageMap/HomePage.css" text="Log out" AnchorPane.rightAnchor="96.0" AnchorPane.topAnchor="50.0" />
+      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <JFXDrawer fx:id="drawer" alignment="CENTER_LEFT" defaultDrawerSize="400.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="350.0" BorderPane.alignment="CENTER_LEFT" />
+         </center>
+      </BorderPane>
+      <JFXHamburger fx:id="hamburger" layoutX="831.0" layoutY="52.0" spacing="5.0" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="60.0" />
+   </children>
+</AnchorPane>
