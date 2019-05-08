@@ -17,13 +17,19 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Glow;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 
 public class MapController implements Initializable{
 	
@@ -60,11 +66,76 @@ public class MapController implements Initializable{
 	    @FXML
 	    private AnchorPane backHome;
 	    
-	    private HomePageController ref;
+	    @FXML
+	    private Slider zoom_slider;
 	    
+	    @FXML
+	    private Button zoomIn;
+
+	    @FXML
+	    private Button zoomOut;
+	    
+	    @FXML
+	    private ScrollPane map_scrollpane;
+	    
+	    Group zoomGroup;
+	    	    
 	    int count=0;
+	    
+	    private void zoom(double scaleValue) {
+		          double scrollH = map_scrollpane.getHvalue();
+		          double scrollV = map_scrollpane.getVvalue();
+		          zoomGroup.setScaleX(scaleValue);
+		          zoomGroup.setScaleY(scaleValue);
+		          map_scrollpane.setHvalue(scrollH);
+		          map_scrollpane.setVvalue(scrollV);
+		      }
+	    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+    	  	
+    	 zoom_slider.setMin(0.5);
+         zoom_slider.setMax(1.5);
+         zoom_slider.setValue(1.0);
+         zoom_slider.valueProperty().addListener((o, oldVal, newVal) -> zoom((Double) newVal));
+         
+         Group contentGroup = new Group();
+         zoomGroup = new Group();
+         contentGroup.getChildren().add(zoomGroup);
+         zoomGroup.getChildren().add(map_scrollpane.getContent());
+         map_scrollpane.setContent(contentGroup);
+          	
+         
+        zoomIn.setOnAction(e->{
+        	  double sliderVal = zoom_slider.getValue();
+              zoom_slider.setValue(sliderVal += 0.1);
+        });
+        
+        zoomOut.setOnAction(e->{
+        	  double sliderVal = zoom_slider.getValue();
+              zoom_slider.setValue(sliderVal + -0.1);
+        });
+        
+    	//Hieu ung
+        btnSearch.setOnMouseEntered(e->{
+    		Glow glowfx = new Glow();
+	        glowfx.setLevel(1);
+	        	  DropShadow dropShadow = new DropShadow();
+	                dropShadow.setColor(Color.SKYBLUE);
+	                dropShadow.setHeight(20);
+	                dropShadow.setWidth(20);
+	                dropShadow.setRadius(5);
+	                dropShadow.setSpread(10);
+	                btnSearch.setEffect(dropShadow);
+    	});
+    	btnSearch.setOnMouseExited(e->{
+    		 Glow glowfx = new Glow();
+ 	         glowfx.setLevel(1);
+ 	       btnSearch.setEffect(null);
+    	});
+    	
+    	/*________________________________________________________________*/
+    	
     	 ObservableList<User> users = FXCollections.observableArrayList();
 
         users.add(new User("1","A"));
@@ -79,10 +150,7 @@ public class MapController implements Initializable{
         		((ImageView)Item).setVisible(false);
         	}
         }
-        
-       /* if(backHome.equals(ref.anchorPane))
-        	homebtn.setVisible(false);*/
-        
+              
         homebtn.setOnAction(e->{
         	Parent root1= null;
         	try {
