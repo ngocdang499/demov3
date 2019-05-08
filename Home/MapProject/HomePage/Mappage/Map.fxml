@@ -57,7 +57,7 @@
             </GridPane>
             <StackPane prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <children>
-                  <ScrollPane prefHeight="238.0" prefWidth="340.0">
+                  <ScrollPane fx:id="map_scrollpane" prefHeight="238.0" prefWidth="340.0">
                      <content>
                         <AnchorPane fx:id="Parent" prefHeight="100000.0" prefWidth="100000.0" style="-fx-background-color: #b2ebf2;">
                            <children>
@@ -141,10 +141,9 @@
             </StackPane>
          </children>
       </VBox>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="250.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="10.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="269.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="10.0">
          <children>
-            <JFXSlider layoutX="-21.0" layoutY="1.0" prefHeight="21.0" prefWidth="107.0" translateX="80.0" translateY="30.0" />
-            <Button layoutX="175.0" layoutY="21.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="41.0" prefWidth="53.0">
+            <Button fx:id="zoomIn" layoutX="202.0" layoutY="21.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="41.0" prefWidth="53.0">
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -153,7 +152,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutY="21.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="53.0">
+            <Button fx:id="zoomOut" layoutX="6.0" layoutY="21.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="53.0">
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -162,6 +161,7 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Slider fx:id="zoom_slider" layoutX="65.0" layoutY="31.0" />
          </children>
       </AnchorPane>
    </children>
